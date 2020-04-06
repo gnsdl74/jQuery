@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Get/Set</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<h1>jQuery getter/setter</h1>
+	<p>우리는 <b>jQuery</b>를 공부하고 있습니다.</p>
+	<button type="button" id="btn1">HTML</button>
+	<button type="button" id="btn2">Text</button>
+	<div id="output"></div>
+	
+	<script type="text/javascript">
+	$(function() {
+	  /*
+	   html와 text의 차이
+	   html : <tag></tag> 안에 있는 모든 요소를 가져오기(html 요소를 포함하여 전달) - 여기에서는 <b></b>를 포함
+	   text : <tag></tag> 안에 있는 텍스트만 가져오기
+	  */
+	  $('#btn1').click(function() {
+	    var msg = $('p').html(); // innerHTML에 해당
+	    $('#output').html(msg);
+	  });
+	  
+	  $('#btn2').click(function() {
+	    var msg = $('p').text(); // textContent
+	    $('#output').html(msg);
+	  });
+	}); // end document()
+	</script>
+
+</body>
+</html>

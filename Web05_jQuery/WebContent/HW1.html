@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HW1</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<ul>
+		<li>Java</li>
+		<li>Oracle DB</li>
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>JavaScript</li>
+		<li>jQuery</li>
+	</ul>
+
+	<script type="text/javascript">
+    $(function() {
+      
+      $('li').each(function(index) { // ('select').each(function(index, element));
+        console.log(index);
+        $(this).click(function() {
+          if (index % 2 == 0) { // 짝수인 경우
+            $(this).css('background-color', 'green');
+          } else { // 홀수인 경우
+            $(this).css('background-color', 'yellow');
+          }
+        }); // end li.click()
+        
+      }); // end li.each()
+      
+    }); // end document
+  </script>
+</body>
+</html>

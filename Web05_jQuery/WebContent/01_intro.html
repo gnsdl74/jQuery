@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Intro</title>
+  <!-- 
+   jQuery
+   - 자바스크립트를 더 쉽게 사용하기 위한 목적으로 만들어진 라이브러리
+   - 확장성이 좋고, 대중적으로 사용됨
+  -->
+ 
+  <!-- 
+      사용방법
+   - 파일을 다운받아서 경로로 불러오기
+  -->
+  <!-- <script src="js/jquery-3.4.1.min.js"></script> -->
+  
+  <!-- 사용방법 2 : url 경로로 불러오기 -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  
+  <script type="text/javascript">
+  	// window.onload 와 같음
+  	// document가 다 등록된 후에 실행되기 때문에
+  	// 스크립트를 head에서 선언해도 상관없음
+	$(document).ready(function() {
+	  $('h2').click(function() {
+	    $(this).hide(); // this : h2를 가리킴
+	  });
+	});  
+  </script>
+</head>
+<body>
+  <h1>jQuery 사용하기</h1>
+  <h2>클릭하세요! 그럼 제가 사라집니다.</h2>
+  <h2>h2 태그</h2>
+  
+</body>
+</html>

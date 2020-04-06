@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Animate1</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<style type="text/css">
+#panel {
+	border: 1px solid grey;
+	background-color: lime;
+	width: 200px;
+	height: 200px;
+}
+</style>
+</head>
+<body>
+	<h1>jQuery 애니메이션 함수들</h1>
+	<button type="button" id="hidebtn">Hide</button>
+	<button type="button" id="showbtn">Show</button>
+	<button type="button" id="togglebtn">Toggle</button>
+	<button type="button" id="updownbtn">Up/Down</button>
+	<button type="button" id="stopbtn">Stop</button>
+	<div id="panel">Animation</div>
+
+	<script type="text/javascript">
+    //애니메이션 함수들 - callback이 먼저 실행된 후 해당 메소드가 실행됨.
+    // - hide(speed, callback), fadeOut(speed, callback), slideUp()
+    // - show(speed, callback), fadeIn(speed, callback), slideDown()
+    // - toggle(speed, callback), fadeToggle(speed, callback), slideToggle()
+    $(function() {
+      $('#hidebtn').click(function() {
+        $('#panel').hide(1000, alert('Hello')); // 설정한 시간에 맞춰 사라짐.
+      }); // end hidebtn.click()
+
+      $('#showbtn').click(function() {
+        $('#panel').show(1000); // 설정한 시간에 맞춰 나타남.
+      }); // end showbtn.click()
+
+      $('#togglebtn').click(function() {
+        $('#panel').slideToggle(1000); // 설정한 시간에 맞춰 사라짐/나타남.
+      }); // end togglebtn.click()
+
+      $('#updownbtn').click(function() {
+        $('#panel').slideUp(1000).slideDown(1000); // 설정한 시간에 맞춰 올라갔다 내려옴.
+      }); // end updownbtn.click()
+
+      $('#stopbtn').click(function() {
+        $('#panel').stop(); // 다른 기능의 실행을 멈춤.
+      }); // end stopbtn.click()
+    }); // end document
+  </script>
+
+</body>
+</html>

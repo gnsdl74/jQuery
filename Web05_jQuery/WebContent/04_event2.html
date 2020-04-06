@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Event</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<style type="text/css">
+p {
+	border: 1px solid grey;
+	width: 200px;
+	height: 200px;
+	background-color: lightgreen;
+	font-size: 200%;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<h1>jQuery Event2</h1>
+	<p>TEST</p>
+	<script type="text/javascript">
+	  $(document).ready(function(){
+	    // 하나의 HTML 요소에 여러 개의 event handler 등록 방법
+	    // $('selector').on ({
+	    //  event1 : function() {},
+	    //  event2 : function() {},
+	    //  ...
+	    // });
+	    
+	    $('p').on({
+	      mouseover : function() {
+	        $(this).css('background-color', 'lightyellow');
+	      }, // end mouseover
+	      mouseout : function() {
+	        $(this).css('background-color', 'lightgreen');
+	      }, // end mouseout
+	      click : function() {
+	        if($(this).text().match('TEST')) { // p의 html 내용이 'TEST'일 경우
+	          $(this).text('아침입니다.');
+	        } else {
+	          $(this).text('TEST');
+	        }
+	        
+	      } // end click
+	      
+	    })
+	    
+	  }); // end document()
+	</script>
+</body>
+</html>

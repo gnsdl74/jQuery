@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Event</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<h1>jQuery Event</h1>
+	<img id="bulb" alt="전구" src="img/bulb_off.gif">
+	<br>
+	<br>
+	<p style="border: 1px solid black; background-color: green">hover</p>
+	<input type="text" id="name"/>
+	
+	<script type="text/javascript">
+	// $(document.ready(function() {});
+	$(function(){
+	  // mouseover, mouseenter:
+	    // - 마우스가 해당 영역 위로 올라갔을 때
+	    $('#bulb').mouseover(function() {
+	      console.log($(this).attr('src')); // attr('속성 이름') : 속성의 값을 가져옴
+	      $(this).attr('src', 'img/bulb_on.gif'); // attr('속성 이름', '속성값') : 속성의 값을 변경
+	      /* $(this).slideUp(1000).slideDown(1000); 크기를 줄였다가 다시 늘리는 기능*/
+	    });
+	  
+	    $('#bulb').mouseout(function() {
+	      $(this).attr('src', 'img/bulb_off.gif');
+	    });
+	    
+	    // hover(handlerIn, handlerOut) - 기능 : mouseover와 동일
+	    //	- handlerIn : 마우스가 해당 영역 위로 올라갔을 때 처리할 이벤트 핸들러
+	    //	- handlerOut : 마우스가 해당 영역 바깥으로 나갔을 때 처리할 이벤트 핸들러
+	    function handlerIn() {
+	      console.log($('p').css('background-color')); // css('스타일 이름') : 스타일 이름의 정보 출력
+	      $('p').css('background-color', 'yellow'); // css('스타일 이름', '값') : 스타일 이름의 정보 변경
+	    }
+	    
+	    function handlerOut() {
+	      $('p').css('background-color', 'green');
+	    }
+	    $('p').hover(handlerIn, handlerOut);
+	    
+	    // focus : 포커스를 받았을 때(입력 가능한 상태)
+	    // blur : 포커스를 잃었을 때
+	    $('#name').focus(function() {
+	      $(this).css('background-color', 'lightyellow');
+	    });
+	    
+	    $('#name').blur(function() {
+	      $(this).css('background-color', 'white');
+	    });
+	    
+	    // change : 입력된 내용이 변경됐을 때(enter나 tap을 눌렀을때)
+	    $('#name').change(function() {
+	      console.log($(this).val()); // val() : value값 리턴
+	      // => document.getElementById('#name').value;
+	      $(this).val($(this).val().toUpperCase()); // val('값') : 객체의 value값을 변경
+	    });
+	}); // end document
+	</script>
+</body>
+</html>
